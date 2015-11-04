@@ -1,5 +1,6 @@
 package com.nycjv321.testng.builders;
 
+import org.testng.IReporter;
 import org.testng.ITestNGListener;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
@@ -43,6 +44,10 @@ class SuiteBuilder extends Builder<XmlSuite, SuiteBuilder> {
         listeners.add(listener.getClass().getCanonicalName());
         suite.setListeners(listeners);
         return getThis();
+    }
+
+    public SuiteBuilder reporter(IReporter reporter) {
+        return listener(reporter);
     }
 
 

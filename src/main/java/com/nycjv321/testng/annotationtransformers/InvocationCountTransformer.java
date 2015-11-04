@@ -13,7 +13,7 @@ public class InvocationCountTransformer implements IAnnotationTransformer {
 
     private static int count;
 
-    public static InvocationCountTransformer get(int count) {
+    public static InvocationCountTransformer count(int count) {
         InvocationCountTransformer invocationCountTransformer = new InvocationCountTransformer();
         InvocationCountTransformer.count = count;
         return invocationCountTransformer;

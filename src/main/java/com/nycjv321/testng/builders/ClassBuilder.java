@@ -20,6 +20,13 @@ class ClassBuilder extends Builder<XmlClass, ClassBuilder> {
         return getThis();
     }
 
+    public ClassBuilder whiteList(List<String> methodNames) {
+        for (String methodName : methodNames) {
+            whiteList(methodName);
+        }
+        return getThis();
+    }
+
     public ClassBuilder whiteList(String methodName) {
         List<XmlInclude> includedMethods = clazz.getIncludedMethods();
         XmlInclude include = new XmlInclude(methodName);
