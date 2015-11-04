@@ -20,6 +20,7 @@ public class InvocationCountTransformer implements IAnnotationTransformer {
     }
 
     public InvocationCountTransformer(){}
+
     @Override
     public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
      annotation.setInvocationCount(count);
