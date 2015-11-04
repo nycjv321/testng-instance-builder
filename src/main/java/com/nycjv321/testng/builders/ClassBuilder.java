@@ -6,8 +6,8 @@ import org.testng.xml.XmlInclude;
 import java.util.List;
 
 /**
-* Created by fedora on 11/4/15.
-*/
+ * Created by fedora on 11/4/15.
+ */
 class ClassBuilder extends Builder<XmlClass, ClassBuilder> {
     private final XmlClass clazz;
 
@@ -22,7 +22,8 @@ class ClassBuilder extends Builder<XmlClass, ClassBuilder> {
 
     public ClassBuilder whiteList(String methodName) {
         List<XmlInclude> includedMethods = clazz.getIncludedMethods();
-        includedMethods.add(new XmlInclude(methodName));
+        XmlInclude include = new XmlInclude(methodName);
+        includedMethods.add(include);
         clazz.setIncludedMethods(includedMethods);
         return getThis();
     }

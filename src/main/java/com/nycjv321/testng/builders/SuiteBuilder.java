@@ -6,10 +6,11 @@ import org.testng.xml.XmlTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
-* Created by fedora on 11/4/15.
-*/
+ * Created by fedora on 11/4/15.
+ */
 class SuiteBuilder extends Builder<XmlSuite, SuiteBuilder> {
     private final List<XmlTest> tests = new ArrayList<>();
     private final XmlSuite suite;
@@ -21,6 +22,7 @@ class SuiteBuilder extends Builder<XmlSuite, SuiteBuilder> {
     public static SuiteBuilder createSuiteBuilder() {
         return new SuiteBuilder();
     }
+
     public SuiteBuilder add(TestBuilder builder) {
         tests.add(builder.build());
         return getThis();
@@ -28,6 +30,11 @@ class SuiteBuilder extends Builder<XmlSuite, SuiteBuilder> {
 
     public SuiteBuilder name(String name) {
         suite.setName(name);
+        return getThis();
+    }
+
+    public SuiteBuilder parameters(Map<String, String> parameters) {
+        suite.setParameters(parameters);
         return getThis();
     }
 
@@ -47,7 +54,7 @@ class SuiteBuilder extends Builder<XmlSuite, SuiteBuilder> {
     public XmlSuite get() {
         return suite;
     }
-    
+
     @Override
     public SuiteBuilder getThis() {
         return this;
